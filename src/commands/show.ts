@@ -101,7 +101,7 @@ export async function getProblemByIds(): Promise<void> {
         }
 		res = res.map(v => String(v));
         const allProblems: any = await list.listProblems();
-        const problems: any = allProblems.filter(v => v.id && res.includes(v.id));
+        const problems: any = allProblems.filter(v => res.includes(v.id)||res.includes(v.name));
         if (!problems.length) {
             return;
         }
